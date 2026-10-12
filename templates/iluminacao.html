@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iluminação | Sistema da Casa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style/css/dashboard.css">
+    <link rel="stylesheet" href="../style/css/iluminacao.css">
+    <script src="../style/js/iluminacao.js" defer></script>
+</head>
+<body>
+
+  <!-- MENU LATERAL (igual ao do dashboard) -->
+  <nav class="sidebar" aria-label="Menu principal">
+    <div class="logo">
+      <span class="logo-marca" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+      </span>
+      <span class="logo-texto">Minha Casa</span>
+    </div>
+
+    <ul>
+      <li>
+        <a href="dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+          <span>Início</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/iluminacao.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>
+          <span>Iluminação</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/temperatura.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg>
+          <span>Temperatura</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/seguranca.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span>Segurança</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/portao.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V8l9-5 9 5v13"/><path d="M3 21h18"/><path d="M7 21V11h10v10"/><path d="M7 14h10"/><path d="M7 17h10"/></svg>
+          <span>Portão</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/faxina.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v7"/><path d="M8 9h8l1 5H7l1-5z"/><path d="M7 14l-1 8h12l-1-8"/></svg>
+          <span>Faxina</span>
+        </a>
+      </li>
+      <li><a href="card.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg><span>Cartão</span></a></li>
+    </ul>
+
+    <div class="rodape">Casa do Rafael</div>
+  </nav>
+
+  <!-- CONTEÚDO -->
+  <main class="conteudo-principal">
+
+    <header class="pagina-topo">
+      <div>
+        <h1 class="pagina-titulo">Iluminação</h1>
+        <p class="resumo" id="resumo" aria-live="polite">Carregando…</p>
+      </div>
+
+      <div class="acoes-gerais">
+        <button type="button" class="btn" id="acender-tudo">Acender tudo</button>
+        <button type="button" class="btn sec" id="apagar-tudo">Apagar tudo</button>
+      </div>
+    </header>
+
+    <div class="painel">
+
+      <!-- Planta da casa -->
+      <section class="planta" aria-label="Cômodos da casa">
+        <div class="planta-grade" id="planta-grade"></div>
+      </section>
+
+      <!-- Controle do cômodo selecionado -->
+      <section class="controle" aria-labelledby="controle-nome">
+        <div class="controle-topo">
+          <div class="controle-nome">
+            <span class="controle-ponto" id="controle-ponto" aria-hidden="true"></span>
+            <div>
+              <h2 id="controle-nome">Salas</h2>
+              <p class="controle-estado" id="controle-estado"></p>
+            </div>
+          </div>
+          <button type="button" class="interruptor" id="interruptor" role="switch" aria-checked="false"></button>
+        </div>
+
+        <div class="campo">
+          <label class="campo-rotulo" for="brilho">
+            Brilho <output id="brilho-valor" for="brilho">80%</output>
+          </label>
+          <input type="range" id="brilho" min="5" max="100" step="1" value="80">
+        </div>
+
+        <fieldset class="campo">
+          <legend class="campo-rotulo">Cor da luz</legend>
+          <div class="cores" id="cores"></div>
+
+          <label class="cor-custom">
+            Escolher outra cor
+            <input type="color" id="cor-custom" value="#ffc98a">
+          </label>
+        </fieldset>
+
+        <button type="button" class="btn sec" id="aplicar-todos">Usar esta cor em todos os cômodos</button>
+      </section>
+    </div>
+
+    <h2 class="cenas-titulo">Cenas</h2>
+    <p class="cenas-sub">Um toque e a casa inteira muda de clima.</p>
+    <div class="cenas" id="cenas"></div>
+
+  </main>
+
+</body>
+</html>
+

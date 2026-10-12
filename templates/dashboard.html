@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema da Casa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style/css/dashboard.css">
+    <script src="../style/js/dashboard.js" defer></script>
+</head>
+<body>
+
+  <!-- MENU LATERAL -->
+  <nav class="sidebar" aria-label="Menu principal">
+    <div class="logo">
+      <span class="logo-marca" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+      </span>
+      <span class="logo-texto">Minha Casa</span>
+    </div>
+
+    <ul>
+      <li>
+        <a href="dashboard.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+          <span>Início</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/iluminacao.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>
+          <span>Iluminação</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/temperatura.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg>
+          <span>Temperatura</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/seguranca.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span>Segurança</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/portao.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V8l9-5 9 5v13"/><path d="M3 21h18"/><path d="M7 21V11h10v10"/><path d="M7 14h10"/><path d="M7 17h10"/></svg>
+          <span>Portão</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/faxina.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v7"/><path d="M8 9h8l1 5H7l1-5z"/><path d="M7 14l-1 8h12l-1-8"/></svg>
+          <span>Faxina</span>
+        </a>
+      </li>
+      <li><a href="card.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg><span>Cartão</span></a></li>
+    </ul>
+
+    <div class="rodape">Casa do Rafael</div>
+  </nav>
+
+  <!-- CONTEÚDO -->
+  <main class="conteudo-principal">
+
+    <header class="hero">
+      <img src="../arquivos/imglateral.png" alt="Imagem da casa do Rafael" class="lateral">
+
+      <div class="hero-texto">
+        <div>
+          <p class="saudacao" id="saudacao">Olá, Rafael</p>
+          <h1 class="titulo">Sistema da Casa do Rafael</h1>
+        </div>
+        <div class="relogio" aria-live="off">
+          <span class="hora" id="hora">--:--</span>
+          <span class="data" id="data"></span>
+        </div>
+      </div>
+    </header>
+
+    <h2 class="secao-titulo">O que você quer controlar?</h2>
+    <p class="secao-sub">Escolha uma área da casa para abrir.</p>
+
+    <section class="modulos" aria-label="Áreas da casa">
+
+      <a class="modulo" href="../templates/iluminacao.html">
+        <span class="icone" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>
+        </span>
+        <div>
+          <h3>Iluminação</h3>
+          <p>Acenda e apague as luzes de cada cômodo.</p>
+        </div>
+        <span class="abrir">Abrir iluminação</span>
+      </a>
+
+      <a class="modulo" href="../templates/temperatura.html">
+        <span class="icone" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg>
+        </span>
+        <div>
+          <h3>Temperatura</h3>
+          <p>Veja e ajuste a temperatura da casa.</p>
+        </div>
+        <span class="abrir">Abrir temperatura</span>
+      </a>
+
+      <a class="modulo destaque" href="../templates/seguranca.html">
+        <span class="icone" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <div>
+          <h3>Segurança</h3>
+          <p>Alarme, sensores e câmeras da casa, num só lugar.</p>
+        </div>
+        <span class="abrir">Abrir segurança</span>
+      </a>
+
+      <a class="modulo" href="../templates/portao.html">
+        <span class="icone" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13"/><path d="M3 21h18"/><path d="M7 21V11h10v10"/><path d="M7 14h10"/><path d="M7 17h10"/></svg>
+        </span>
+        <div>
+          <h3>Portão</h3>
+          <p>Abra e feche o portão sem sair do lugar.</p>
+        </div>
+        <span class="abrir">Abrir portão</span>
+      </a>
+
+      <a class="modulo" href="../templates/faxina.html">
+        <span class="icone" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v7"/><path d="M8 9h8l1 5H7l1-5z"/><path d="M7 14l-1 8h12l-1-8"/></svg>
+        </span>
+        <div>
+          <h3>Faxina</h3>
+          <p>Organize as tarefas de limpeza da semana.</p>
+        </div>
+        <span class="abrir">Abrir faxina</span>
+      </a>
+
+    </section>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faxina | Sistema da Casa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style/css/dashboard.css">
+  <link rel="stylesheet" href="../style/css/faxina.css">
+  <script src="../style/js/faxina.js" defer></script>
+</head>
+<body>
+  <nav class="sidebar" aria-label="Menu principal">
+    <div class="logo">
+      <span class="logo-marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>
+      <span class="logo-texto">Minha Casa</span>
+    </div>
+    <ul>
+      <li><a href="dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span>Início</span></a></li>
+      <li><a href="iluminacao.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg><span>Iluminação</span></a></li>
+      <li><a href="temperatura.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Temperatura</span></a></li>
+      <li><a href="seguranca.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg><span>Segurança</span></a></li>
+      <li><a href="portao.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21V8l9-5 9 5v13M3 21h18M7 21V11h10v10M7 14h10M7 17h10"/></svg><span>Portão</span></a></li>
+      <li><a href="faxina.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v7"/><path d="M8 9h8l1 5H7l1-5z"/><path d="M7 14l-1 8h12l-1-8"/></svg><span>Faxina</span></a></li>
+      <li><a href="card.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg><span>Cartão</span></a></li>
+    </ul>
+    <div class="rodape">Casa do Rafael</div>
+  </nav>
+
+  <main class="conteudo-principal">
+    <header class="pagina-topo">
+      <h1 class="pagina-titulo">Faxina</h1>
+      <p class="resumo">Peça uma limpeza para sua casa.</p>
+    </header>
+    <section class="faxina-cartao" aria-labelledby="faxina-titulo">
+      <div class="faxina-icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v7"/><path d="M8 9h8l1 5H7l1-5z"/><path d="M7 14l-1 8h12l-1-8z"/><path d="M9 17h6"/></svg></div>
+      <h2 id="faxina-titulo">Solicitar faxina</h2>
+      <p class="faxina-descricao">Serviço de limpeza residencial.</p>
+      <p class="faxina-preco"><span>Valor do serviço</span><strong>R$ 300,00</strong></p>
+      <button class="faxina-botao" id="solicitar-faxina" type="button">Solicitar faxina</button>
+      <p class="faxina-status" id="faxina-status" aria-live="polite"></p>
+    </section>
+  </main>
+</body>
+</html>
+

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Segurança | Sistema da Casa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style/css/dashboard.css">
+  <link rel="stylesheet" href="../style/css/seguranca.css">
+  <script src="../style/js/seguranca.js" defer></script>
+</head>
+<body>
+  <nav class="sidebar" aria-label="Menu principal">
+    <div class="logo">
+      <span class="logo-marca" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span>
+      <span class="logo-texto">Minha Casa</span>
+    </div>
+    <ul>
+      <li><a href="dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg><span>Início</span></a></li>
+      <li><a href="iluminacao.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg><span>Iluminação</span></a></li>
+      <li><a href="temperatura.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg><span>Temperatura</span></a></li>
+      <li><a href="seguranca.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg><span>Segurança</span></a></li>
+      <li><a href="portao.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21V8l9-5 9 5v13M3 21h18M7 21V11h10v10M7 14h10M7 17h10"/></svg><span>Portão</span></a></li>
+      <li><a href="faxina.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v7M8 9h8l1 5H7l1-5zM7 14l-1 8h12l-1-8"/></svg><span>Faxina</span></a></li>
+      <li><a href="card.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg><span>Cartão</span></a></li>
+    </ul>
+    <div class="rodape">Casa do Rafael</div>
+  </nav>
+
+  <main class="conteudo-principal">
+    <header class="pagina-topo">
+      <div><p class="sobretitulo">CASA DO RAFAEL</p><h1 class="pagina-titulo">Segurança</h1><p class="resumo">Acompanhe as câmeras e controle a proteção da casa.</p></div>
+      <div class="estado-geral" id="estado-geral"><i></i><span id="texto-geral">Sistema desativado</span></div>
+    </header>
+
+    <section class="painel-protecao" aria-label="Controles de segurança">
+      <article class="cartao-controle alarme-cartao" id="cartao-alarme" data-ativo="false">
+        <div class="controle-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 20 6v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3Z"/><path d="M9 12h6M12 9v6"/></svg></div>
+        <div class="controle-texto"><span class="sobretitulo">ALARME</span><h2 id="alarme-titulo">Alarme desligado</h2><p id="alarme-desc">A casa não está sendo monitorada pelo alarme.</p></div>
+        <button class="botao-chave" id="botao-alarme" type="button" role="switch" aria-checked="false" aria-label="Ligar alarme"><span></span></button>
+      </article>
+      <article class="cartao-controle trava-cartao" id="cartao-trava" data-trancada="false">
+        <div class="controle-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3M12 14v3"/></svg></div>
+        <div class="controle-texto"><span class="sobretitulo">FECHADURA</span><h2 id="trava-titulo">Casa destrancada</h2><p id="trava-desc">As portas estão simuladas como destrancadas.</p></div>
+        <button class="botao-trava" id="botao-trava" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg><span id="texto-trava">Trancar casa</span></button>
+      </article>
+    </section>
+
+    <section class="secao-cameras" aria-labelledby="titulo-cameras">
+      <div class="secao-cabecalho"><div><p class="sobretitulo">MONITORAMENTO AO VIVO</p><h2 id="titulo-cameras">Câmeras da casa</h2></div><span class="gravando"><i></i> EXIBIÇÃO CONTÍNUA</span></div>
+      <div class="grade-cameras">
+        <article class="camera-card">
+          <div class="camera-video"><video src="../arquivos/cam01.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="Vídeo simulado da câmera 1"></video><span class="camera-live"><i></i> REC</span><span class="camera-horario">CAM 01</span></div>
+          <div class="camera-info"><span class="camera-icone" aria-hidden="true">⌂</span><div><h3>Entrada da casa</h3><p>Área externa · Câmera 01</p></div><span class="camera-online"><i></i> Online</span></div>
+        </article>
+        <article class="camera-card">
+          <div class="camera-video"><video src="../arquivos/cam02.mp4" autoplay muted loop playsinline controls preload="metadata" aria-label="Vídeo simulado da câmera 2"></video><span class="camera-live"><i></i> REC</span><span class="camera-horario">CAM 02</span></div>
+          <div class="camera-info"><span class="camera-icone" aria-hidden="true">▤</span><div><h3>Garagem</h3><p>Área de acesso · Câmera 02</p></div><span class="camera-online"><i></i> Online</span></div>
+        </article>
+      </div>
+    </section>
+    <p class="aviso-simulacao">Demonstração: alarme, fechadura e câmeras são simulações locais e não se conectam a equipamentos reais.</p>
+  </main>
+</body>
+</html>
+

@@ -1,0 +1,354 @@
+/* =========================================================
+   Sistema da Casa do Rafael — dashboard.css
+   ========================================================= */
+
+/* ---------- Tokens ---------- */
+:root {
+  --fundo:        #dae0e5;   /* cinza-azulado (seu fundo original) */
+  --superficie:   #f5f7f9;
+  --tinta:        #1a1d21;
+  --tinta-suave:  #5b6570;
+  --menu:         #1a1a1a;   /* menu lateral */
+  --menu-hover:   #2b2b2b;
+  --menu-texto:   #b8bdc2;
+  --destaque:     #b7a821;   /* mostarda (seu título original) */
+  --destaque-esc: #8a7d12;
+  --borda:        #c5ced6;
+
+  --fonte-titulo: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --fonte-texto:  "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+
+  --largura-menu: 250px;
+  --raio: 14px;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: var(--fundo);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  line-height: 1.5;
+}
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--destaque);
+  outline-offset: 3px;
+}
+
+/* ---------- Menu lateral ---------- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--largura-menu);
+  height: 100vh;
+  padding: 28px 14px 20px;
+  background-color: var(--menu);
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px;
+  margin-bottom: 36px;
+  color: #fff;
+  font-family: var(--fonte-titulo);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.sidebar .logo-marca {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--destaque);
+  color: var(--menu);
+}
+
+.sidebar .logo-marca svg { width: 22px; height: 22px; }
+
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.sidebar ul li a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 14px;
+  border-radius: 10px;
+  color: var(--menu-texto);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar ul li a svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a:focus-visible {
+  color: #fff;
+  background-color: var(--menu-hover);
+}
+
+/* Página atual */
+.sidebar ul li a[aria-current="page"] {
+  color: #fff;
+  background-color: var(--menu-hover);
+}
+
+.sidebar ul li a[aria-current="page"]::before {
+  content: "";
+  position: absolute;
+  left: -14px;
+  top: 10px;
+  bottom: 10px;
+  width: 4px;
+  border-radius: 0 4px 4px 0;
+  background: var(--destaque);
+}
+
+.sidebar .rodape {
+  margin-top: auto;
+  padding: 0 14px;
+  color: #7d848b;
+  font-size: 0.82rem;
+}
+
+/* ---------- Conteúdo ---------- */
+.conteudo-principal {
+  margin-left: var(--largura-menu);
+  padding: 28px 32px 48px;
+}
+
+/* ---------- Hero (imagem + título) ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--menu);
+  isolation: isolate;
+}
+
+/* a sua imagem lateral */
+.lateral {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14, 16, 18, 0.88) 8%, rgba(14, 16, 18, 0.15) 70%);
+  z-index: 1;
+}
+
+.hero-texto {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  bottom: 28px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.saudacao {
+  margin: 0 0 6px;
+  color: #e3e7ea;
+  font-size: 1rem;
+}
+
+.titulo {
+  margin: 0;
+  max-width: 18ch;
+  color: rgb(224, 208, 52);
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 4.6vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.relogio {
+  text-align: right;
+  color: #fff;
+}
+
+.relogio .hora {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.relogio .data {
+  display: block;
+  margin-top: 6px;
+  color: #d5dade;
+  font-size: 0.92rem;
+  text-transform: capitalize;
+}
+
+/* ---------- Seção de módulos ---------- */
+.secao-titulo {
+  margin: 40px 0 6px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.secao-sub {
+  margin: 0 0 22px;
+  color: var(--tinta-suave);
+}
+
+.modulos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.modulo {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie);
+  text-decoration: none;
+  transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.modulo:hover {
+  transform: translateY(-3px);
+  border-color: var(--destaque);
+  background: #fff;
+}
+
+.modulo .icone {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--menu);
+  color: var(--destaque);
+}
+
+.modulo .icone svg { width: 24px; height: 24px; }
+
+.modulo h3 {
+  margin: 0 0 4px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.modulo p {
+  margin: 0;
+  color: var(--tinta-suave);
+  font-size: 0.95rem;
+}
+
+.modulo .abrir {
+  margin-top: auto;
+  color: var(--destaque-esc);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+/* Módulo em destaque: Segurança ocupa 2 colunas em telas largas */
+@media (min-width: 1100px) {
+  .modulo.destaque {
+    grid-column: span 2;
+    background: var(--menu);
+    border-color: var(--menu);
+  }
+  .modulo.destaque h3 { color: #fff; }
+  .modulo.destaque p  { color: var(--menu-texto); }
+  .modulo.destaque .icone { background: var(--destaque); color: var(--menu); }
+  .modulo.destaque .abrir { color: var(--destaque); }
+  .modulo.destaque:hover { background: #252525; }
+}
+
+/* ---------- Animação de entrada (só o hero, uma vez) ---------- */
+@keyframes entrada {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero { animation: entrada 0.6s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero { animation: none; }
+  .modulo, .sidebar ul li a { transition: none; }
+  .modulo:hover { transform: none; }
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 860px) {
+  .sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 14px 12px;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .sidebar .logo { margin: 0; flex-shrink: 0; }
+  .sidebar .logo-texto, .sidebar .rodape { display: none; }
+
+  .sidebar ul {
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 4px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .sidebar ul li a { padding: 10px 12px; }
+  .sidebar ul li a span { display: none; }
+  .sidebar ul li a[aria-current="page"]::before { display: none; }
+
+  .conteudo-principal { margin-left: 0; padding: 18px 16px 40px; }
+  .lateral { height: 240px; }
+  .hero-texto { left: 20px; right: 20px; bottom: 20px; }
+  .relogio { text-align: left; }
+}

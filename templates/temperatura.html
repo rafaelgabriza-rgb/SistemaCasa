@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperatura | Sistema da Casa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style/css/dashboard.css">
+    <link rel="stylesheet" href="../style/css/temperatura.css">
+    <script src="../style/js/temperatura.js" defer></script>
+</head>
+<body>
+
+  <!-- MENU LATERAL -->
+  <nav class="sidebar" aria-label="Menu principal">
+    <div class="logo">
+      <span class="logo-marca" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+      </span>
+      <span class="logo-texto">Minha Casa</span>
+    </div>
+
+    <ul>
+      <li>
+        <a href="dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+          <span>Início</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/iluminacao.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>
+          <span>Iluminação</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/temperatura.html" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg>
+          <span>Temperatura</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/seguranca.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span>Segurança</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/portao.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V8l9-5 9 5v13"/><path d="M3 21h18"/><path d="M7 21V11h10v10"/><path d="M7 14h10"/><path d="M7 17h10"/></svg>
+          <span>Portão</span>
+        </a>
+      </li>
+      <li>
+        <a href="../templates/faxina.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v7"/><path d="M8 9h8l1 5H7l1-5z"/><path d="M7 14l-1 8h12l-1-8"/></svg>
+          <span>Faxina</span>
+        </a>
+      </li>
+      <li><a href="card.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg><span>Cartão</span></a></li>
+    </ul>
+
+    <div class="rodape">Casa do Rafael</div>
+  </nav>
+
+  <!-- CONTEÚDO -->
+  <main class="conteudo-principal">
+
+    <header class="pagina-topo">
+      <h1 class="pagina-titulo">Temperatura</h1>
+      <p class="resumo" id="resumo" aria-live="polite">Ative o JavaScript para controlar o ar-condicionado.</p>
+    </header>
+
+    <div class="painel">
+
+      <!-- Termostato -->
+      <section class="termostato" id="termostato" data-modo="frio" data-ligado="true" aria-label="Termostato da casa">
+        <div class="termostato-topo">
+          <h2>Ar-condicionado</h2>
+          <button type="button" class="interruptor" id="power" role="switch" aria-checked="true" aria-label="Sistema ligado"></button>
+        </div>
+
+        <div class="dial">
+          <svg viewBox="0 0 220 220" aria-hidden="true">
+            <g transform="rotate(135 110 110)" fill="none" stroke-width="14" stroke-linecap="round">
+              <circle class="trilho" id="trilho" cx="110" cy="110" r="88"/>
+              <circle class="arco" id="arco" cx="110" cy="110" r="88" stroke-dasharray="0.001 553"/>
+            </g>
+          </svg>
+          <div class="dial-centro">
+            <div class="dial-valor" id="dial-valor">23<small>°C</small></div>
+            <div class="dial-legenda" id="dial-legenda"></div>
+            <div class="dial-agora" id="dial-agora"></div>
+          </div>
+        </div>
+
+        <div class="ajuste">
+          <button type="button" id="menos" aria-label="Baixar 1 grau">&minus;</button>
+          <button type="button" id="mais" aria-label="Subir 1 grau">+</button>
+        </div>
+
+        <fieldset class="grupo">
+          <legend>Modo</legend>
+          <div class="opcoes">
+            <button type="button" class="opcao" data-modo="frio" aria-pressed="true">Resfriar</button>
+            <button type="button" class="opcao" data-modo="calor" aria-pressed="false">Aquecer</button>
+            <button type="button" class="opcao" data-modo="vento" aria-pressed="false">Ventilar</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="grupo">
+          <legend>Ventilador</legend>
+          <div class="opcoes">
+            <button type="button" class="opcao" data-vento="baixa" aria-pressed="false">Baixo</button>
+            <button type="button" class="opcao" data-vento="media" aria-pressed="true">Médio</button>
+            <button type="button" class="opcao" data-vento="alta" aria-pressed="false">Alto</button>
+          </div>
+        </fieldset>
+      </section>
+
+      <!-- Cômodos -->
+      <section aria-labelledby="comodos-titulo">
+        <h2 class="comodos-titulo" id="comodos-titulo">Cômodos</h2>
+        <p class="comodos-sub">Ligue o ar só onde precisa.</p>
+        <div class="comodos" id="comodos"></div>
+        <p class="externa">Lá fora: 29°C (valor simulado).</p>
+      </section>
+
+    </div>
+  </main>
+
+</body>
+</html>

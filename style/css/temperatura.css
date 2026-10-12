@@ -1,0 +1,245 @@
+/* =========================================================
+   Temperatura — temperatura.css
+   (usa as variáveis e o menu do dashboard.css)
+   ========================================================= */
+
+.pagina-topo { margin-bottom: 26px; }
+
+.pagina-titulo {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.resumo { margin: 8px 0 0; color: var(--tinta-suave); font-size: 1.05rem; }
+
+.painel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* ---------- Termostato ---------- */
+.termostato {
+  --modo: #5ab4ff;
+  padding: 28px 24px 24px;
+  border-radius: 22px;
+  background: var(--menu);
+  color: #fff;
+  transition: opacity 0.3s;
+}
+
+.termostato[data-modo="calor"] { --modo: #ff8a4c; }
+.termostato[data-modo="vento"] { --modo: #b7a821; }
+.termostato[data-ligado="false"] { --modo: #5d656c; }
+
+.termostato-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.termostato-topo h2 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+}
+
+.dial {
+  position: relative;
+  width: min(100%, 320px);
+  margin: 0 auto;
+}
+
+.dial svg { display: block; width: 100%; height: auto; }
+
+.dial .trilho { stroke: #2d3237; }
+
+.dial .arco {
+  stroke: var(--modo);
+  filter: drop-shadow(0 0 8px var(--modo));
+  transition: stroke-dasharray 0.35s ease, stroke 0.3s;
+}
+
+.dial-centro {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.dial-valor {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(3.6rem, 12vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.dial-valor small { font-size: 0.4em; font-weight: 600; vertical-align: top; margin-left: 2px; }
+
+.dial-legenda { margin-top: 6px; color: #aeb5bb; font-size: 0.95rem; }
+.dial-agora { margin-top: 2px; color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.ajuste {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 4px 0 26px;
+}
+
+.ajuste button {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 2px solid #3a4046;
+  border-radius: 50%;
+  background: #23272b;
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.ajuste button:hover { background: #2f343a; border-color: var(--modo); }
+.ajuste button:active { transform: scale(0.92); }
+.ajuste button:focus-visible { outline: 3px solid var(--destaque); outline-offset: 3px; }
+
+.grupo { margin-bottom: 18px; border: 0; padding: 0; }
+.grupo legend { padding: 0; margin-bottom: 10px; color: #aeb5bb; font-size: 0.95rem; }
+
+.opcoes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.opcao {
+  padding: 12px 8px;
+  border: 2px solid #3a4046;
+  border-radius: 12px;
+  background: transparent;
+  color: #d5dade;
+  font: 600 0.95rem var(--fonte-texto);
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.opcao:hover { border-color: var(--modo); }
+.opcao:focus-visible { outline: 3px solid var(--destaque); outline-offset: 3px; }
+
+.opcao[aria-pressed="true"] {
+  background: var(--modo);
+  border-color: var(--modo);
+  color: #101214;
+}
+
+/* ---------- Interruptor ---------- */
+.interruptor {
+  position: relative;
+  flex-shrink: 0;
+  width: 62px;
+  height: 34px;
+  border: 0;
+  border-radius: 999px;
+  background: #9aa4ad;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+.interruptor::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s;
+}
+
+.interruptor[aria-checked="true"] { background: var(--destaque); }
+.interruptor[aria-checked="true"]::after { transform: translateX(28px); }
+.interruptor:focus-visible { outline: 3px solid var(--destaque); outline-offset: 3px; }
+
+/* ---------- Cômodos ---------- */
+.comodos-titulo {
+  margin: 0 0 4px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.comodos-sub { margin: 0 0 18px; color: var(--tinta-suave); }
+
+.comodos { display: grid; gap: 12px; }
+
+.comodo {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px 16px;
+  padding: 18px 20px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie);
+}
+
+.comodo-nome { font-family: var(--fonte-titulo); font-size: 1.15rem; font-weight: 700; }
+
+.comodo-temp {
+  font-family: var(--fonte-titulo);
+  font-size: 1.7rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.comodo-estado { color: var(--tinta-suave); font-size: 0.92rem; }
+
+.comodo-barra {
+  grid-column: 1 / -1;
+  height: 8px;
+  border-radius: 999px;
+  background: #cdd5dc;
+  overflow: hidden;
+}
+
+.comodo-barra span {
+  display: block;
+  height: 100%;
+  width: 50%;
+  border-radius: inherit;
+  background: var(--cor-barra, #5ab4ff);
+  transition: width 0.6s ease, background-color 0.6s;
+}
+
+.comodo-lado { display: flex; align-items: center; gap: 14px; justify-content: flex-end; }
+
+.externa {
+  margin: 16px 0 0;
+  color: var(--tinta-suave);
+  font-size: 0.92rem;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 1000px) {
+  .painel { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dial .arco, .comodo-barra span, .interruptor, .interruptor::after,
+  .opcao, .ajuste button { transition: none; }
+}
